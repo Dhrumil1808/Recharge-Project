@@ -1,0 +1,168 @@
+<?php
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sign up</title>
+<link rel="stylesheet" type="text/css" href="css/slider.css" />
+<link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript">
+
+function username()
+{
+	//alert("hi");
+	var uname=Signup.box;
+	var letters=/^[0-9A-Za-z]+$/;
+	
+		
+	if(uname.value.match(letters))
+	{
+		if(uname.value.length<4)
+		{
+		document.getElementById('a').innerHTML='Username of Minimum Length 4';
+	
+	return false;
+	
+				
+		}
+		else
+		{
+	document.getElementById('a').innerHTML='&nbsp;';
+	return true;
+				}
+		
+		
+	}
+	else 
+	{
+	document.getElementById('a').innerHTML='Minimum length 4 and no special symbols';
+	uname.value='';
+	return false;
+	
+	}
+	
+}
+
+
+function mobile()
+{
+	//alert("how are you");
+	var umob=Signup.mobile;
+
+	var numbers=/^[0-9]+$/;	
+
+	if(umob.value.match(numbers))
+{
+	if(umob.value.length!=10)
+	{
+		
+	document.getElementById('b').innerHTML='Please enter 10 digit Mobile Number';
+		umob.value='';
+		return false;
+		
+	}
+	else
+	{
+		document.getElementById('b').innerHTML='&nbsp;';
+		return true;
+				}
+
+}
+else
+{
+	document.getElementById('b').innerHTML='Enter Mobile No.';
+	umob.value='';
+	return false;
+}
+}
+
+function email()
+{
+	//alert("i am fine");
+	var uemail=Signup.email;
+	var mailformat =           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	
+	if(uemail.value.match(mailformat))
+	{
+		document.getElementById('c').innerHTML='&nbsp;';
+		return true;
+				
+	}
+	else
+	{
+		document.getElementById('c').innerHTML='Enter Full Email ';
+		uemail.value='';
+		return false;
+			}
+}
+function password()
+{
+	//alert("what abt u");
+	var upass=Signup.password;
+
+if(upass.value.length<8)
+{
+	document.getElementById('d').innerHTML='Password should be of min. 8 characters';
+	upass.value='';
+	return false;
+	
+}
+
+else
+{
+	document.getElementById('d').innerHTML='&nbsp;';
+	return true;
+}
+}
+
+function validate()
+{
+	return username() && mobile() && email() && password();
+	
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="main">
+<h3> Create Your Account </h3>
+<div id="h"><h5> Then Enjoy our services. </h5> </div>
+
+<form name="Signup" action="index_web.php" onsubmit="return validate()" >
+<table class="signup">
+<tr>
+<td><input type="text" id="a1"name="box" placeholder="Username" onblur="username()"/> </td>  </tr>
+<tr> 
+	<td><input type="text" id="b1" name="mobile" placeholder="Mobile no." onblur="mobile()" />
+    </td>
+</tr>     
+<tr> 
+	<td> <input type="text" id="c1" name="email" placeholder="E-mail" onblur="      email()"/> </td>
+ </tr>
+<tr> 
+ <td> <input type="password" name="password" id="d1" placeholder="Password" onblur="password()" />
+</td>
+
+</tr>
+<tr>
+	<td><input type="submit" id="d2" name="submit" value="Create my Account" /></a>
+    </td>
+  </tr>
+  <tr> <td> <div id="a"> &nbsp;</div> </td>
+  </tr>
+  <tr> <td> <div id="b"> &nbsp;</div> </td>
+  </tr>
+  <tr> <td> <div id="c"> &nbsp; </div> </td>
+  </tr>
+  <tr>
+  <td> <div id="d"> &nbsp; </div> </td>
+  </tr>
+</table>
+</form>
+</div>
+</body>
+</html>
